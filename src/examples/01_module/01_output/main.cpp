@@ -1,11 +1,11 @@
 #include "output.h"//"" for including things that we create
- #include <iostream>// <> for things from the library
+#include <iostream>// <> for things from the library
 
- using std::cout;
+using std::cout;
 
 int main() 
 { 
-	cout<<"Hello World!"
+	cout << "Hello World!";
 
 	return 0;
 }
