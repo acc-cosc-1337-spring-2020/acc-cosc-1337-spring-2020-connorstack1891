@@ -1,6 +1,6 @@
 #include "vars.h"
 
-using std::cout;
+
 
 //cpp
 
