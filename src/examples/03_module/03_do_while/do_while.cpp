@@ -1,9 +1,27 @@
 #include<iostream>
 #include "do_while.h"
-#include "switch.h"
+#include"while.h"
+//#include "switch.h"
 
 using std::cout;
 using std::cin;
+
+void prompt_user()
+{
+	int choice;
+
+	do
+	{
+		int num;
+		cout << "enter a number: ";
+		cin >> num;
+		cout << sum_of_squares(num) << "\n\n";
+
+		cout << "Continue: ";
+		cin >> choice;
+	} while (choice == 1);
+}
+
 
 //Write code for void function prompt_user to loop until
 //user opts not to continue.  
