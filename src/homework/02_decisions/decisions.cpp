@@ -15,7 +15,7 @@ int get_grade_points(std::string letter_grade)
 	{
 		return 4;
 	}
-	else if(letter_grade == "B") 
+	else if(letter_grade == "B")  
 	{
 		return 3;
 	}

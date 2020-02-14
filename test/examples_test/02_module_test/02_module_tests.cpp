@@ -23,7 +23,7 @@ TEST_CASE("Test get generation function")
 	REQUIRE(get_generation(1930) == "Silent Generation");
 	REQUIRE(get_generation(1910) == "invalid year");
 }
-TEST_CASE("Teast meun function")
+TEST_CASE("Test menu function")
 {
 	REQUIRE(menu(0) == "Invalid option");
 	REQUIRE(menu(1) == "Option 1");
