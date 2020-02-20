@@ -1,8 +1,7 @@
-#include<iostream>
-#include "if.h"//to use is_even function here
+#include "if.h"
+#include <iostream>
 
-using std::cout;
-using std::cin;
+using std::cout; using std::cin;
 
 int main() 
 {
@@ -13,8 +12,9 @@ int main()
 
 	//prompt user for a keyboard number
 	//assign the number to the value variable
-	cout << "Type a number: ";
+	cout << "enter a number: ";
 	cin >> value;
+
 
 	//call the is_even function with value as its argument
 	//and assign its return value to the even variable
@@ -23,11 +23,13 @@ int main()
 	//display even if number is even
 	if (even == true)
 	{
-		cout << value << " is even.";
+		cout << value << " is even";
 	}
 	else
 	{
-		cout << value << " is odd.";
+		cout << value << "is odd";
 	}
 	return 0;
 }
+
+

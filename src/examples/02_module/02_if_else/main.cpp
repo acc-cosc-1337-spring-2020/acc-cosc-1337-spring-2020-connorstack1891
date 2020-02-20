@@ -22,4 +22,13 @@ int main()
 	cout << "Generation is: " << result;
 	
 	return 0;
+} 
+int main()
+{
+	int year;
+
+	cout << "enter a year: ";
+	cin >> year;
+
+	string
 }

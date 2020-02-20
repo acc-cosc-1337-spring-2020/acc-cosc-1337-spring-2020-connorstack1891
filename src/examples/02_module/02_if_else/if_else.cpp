@@ -1,4 +1,4 @@
-#include "if_else.h"
+# include "if_else.h"
 //write include statement for if_else header file
 
 //write code for function named get_generation that accepts an int year and returns
@@ -34,8 +34,10 @@ string get_generation(int year)
 	}
 	else
 	{
-		return "invalid year";
+		return string();
 	}
-
-	return string();
 }
+
+
+
+
