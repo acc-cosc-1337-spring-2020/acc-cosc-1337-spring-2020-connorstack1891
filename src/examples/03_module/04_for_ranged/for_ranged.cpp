@@ -47,6 +47,27 @@ void loop_string_w_auto(const std::string & str)
 	}
 }
 
+void loop_string_w_auto_value(std::string &str)
+{
+	for (auto ch : str)
+	{
+		ch = 'z';
+	}
+
+}
+
+void loop_string_w_auto_ref(std::string & str)
+{
+	for (auto &ch : str)  //WE ARE ADDING & TO REF LOCATION IN MEMORY
+	{
+		ch = 'z';
+	}
+
+}
+
+
+
+
 void loop_vector_w_index() 
 {
 	vector<int> nums = {9, 10, 99, 5,67 };
