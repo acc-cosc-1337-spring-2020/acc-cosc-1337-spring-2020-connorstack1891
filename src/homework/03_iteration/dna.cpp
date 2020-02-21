@@ -13,7 +13,7 @@ double get_gc_content(const std::string & dna1)
 {
 	double count1 = 0;
 	double count2 = 0;
-	for (int i = 0; i < dna1.size(); ++i)
+	for (int i = 0; i <= dna1.size(); ++i)
 	{	
 		if (dna1[i] == 'C' || dna1[i] == 'G')
 		{
