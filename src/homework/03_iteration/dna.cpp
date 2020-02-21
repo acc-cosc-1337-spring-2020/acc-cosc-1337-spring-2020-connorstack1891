@@ -1,5 +1,6 @@
 #include "dna.h"
 #include <iostream>
+using std::string;
 /*
 Write code for function get_gc_content that accepts
 a const reference string parameter and returns a double.
@@ -8,13 +9,25 @@ Iterate string count Gs and Cs, divide count by string length.
 Return quotient.
 */
 
-double get_gc_content(const std::string & dna)
+double get_gc_content(const std::string & dna1)
 {
-	for (int i = 0; i < dna.size(); ++i)
-	{
+	int count1;
+	int count2;
+	for (int i = 0; i < dna1.size(); ++i)
+	{	
+		if (dna1[i] == 'C' || dna1[i] == 'G')
+		{
+			count1 += 1;
+		}
+		else if (dna1[i] == 'A' || dna1[i] == 'T')
+		{
+			count2 += 1;
+		}
+	}	
+	int total = count1 + count2;
+	int content = count1 / total;
 	
-	}		
-	return 0.0;
+	return content;
 }
 
 
@@ -25,9 +38,16 @@ Write code for function get_reverse_string that
 accepts a string parameter and returns a string reversed.
 */
 
-void get_reverse_string(std::string dna)
+string get_reverse_string(std::string dna2)
 {
-	return dna.reverse()
+	string revDna;
+	revDna = "";
+	for (auto i = dna2.length(); i != 0; i--)
+	{
+		revDna.push_back(dna2[i]);
+	}
+	
+	return revDna;
 }
 
 
@@ -42,7 +62,29 @@ b. iterate local string variable and
 c. return string
 
 */
-string get_dna_complement(std::string dna)
+string get_dna_complement(std::string dna2)
 {
-	return string();
+
+	string reversed = get_reverse_string(dna2);
+
+	for (auto i = 0; i <= reversed.length(); ++i)
+		if (reversed[i] == 'A')
+		{
+			reversed[i] = 'T';
+		}
+		else if (reversed[i] == 'T')
+		{
+			reversed[i] = 'A';
+		}
+		else if (reversed[i] == 'C')
+		{
+			reversed[i] = 'G';
+		}
+		else if (reversed[i] == 'G')
+		{
+			reversed[i] = 'C';
+		}
+	
+
+	return reversed;
 }

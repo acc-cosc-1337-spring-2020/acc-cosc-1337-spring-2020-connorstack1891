@@ -4,7 +4,7 @@
 #include <string>
 //write using statements
 
-using std::cout; using std::cin;
+using std::cout; using std::cin; using std::string;
 
 
 /*
@@ -22,20 +22,31 @@ int main()
 	cout << "Enter 1 for Get GC Content, or 2 for Get DNA Complement";
 	cin >> init;
 
-	do {
-		int dna;
-		cout << "Enter your string of DNA";
-		cin >> dna;
-		get_gc_content(dna)
-	} while (init = 1);
+	if (init == 1)
+	{
+		string dna1;
+		cout << "Enter your string of DNA ";
+		cin >> dna1;
+		get_gc_content(dna1);
 
-	do {
-	int dna;
-	cout << "Enter your string of DNA";
-	cin >> dna;
+		double gc_content = get_gc_content(dna1);
+		cout << gc_content;
+	}
 
+	else if (init == 2)
+	{
+		string dna2;
+		cout << "Enter your string of DNA ";
+		cin >> dna2;
+		get_dna_complement(dna2);
 
-	} while (init = 2);
+		string dna_complement = get_dna_complement(dna2);
+
+		cout << dna_complement;
+
+	}
+	else
+		return 0;
 	
 
 	return 0;
