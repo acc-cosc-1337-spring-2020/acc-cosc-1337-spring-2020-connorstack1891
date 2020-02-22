@@ -1,6 +1,6 @@
 #include "dna.h"
 #include <iostream>
-using std::string;
+using std::string; using std::cout; using std::cin;
 /*
 Write code for function get_gc_content that accepts
 a const reference string parameter and returns a double.
@@ -13,7 +13,8 @@ double get_gc_content(const std::string & dna1)
 {
 	double count1 = 0;
 	double count2 = 0;
-	for (int i = 0; i <= dna1.size(); ++i)
+	for (int i = 0; i <=
+		dna1.size(); ++i)
 	{	
 		if (dna1[i] == 'C' || dna1[i] == 'G')
 		{
@@ -42,9 +43,12 @@ string get_reverse_string(std::string dna2)
 {
 	string revDna;
 	revDna = "";
-	for (auto i = dna2.length(); i != 0; i--)
+	
+	for (auto i = dna2.length(); i != 0; --i)
 	{
+		
 		revDna.push_back(dna2[i]);
+		
 	}
 	
 	return revDna;
@@ -68,6 +72,7 @@ string get_dna_complement(std::string dna2)
 	string reversed = get_reverse_string(dna2);
 
 	for (auto i = 0; i <= reversed.length(); ++i)
+	{
 		if (reversed[i] == 'A')
 		{
 			reversed[i] = 'T';
@@ -84,7 +89,12 @@ string get_dna_complement(std::string dna2)
 		{
 			reversed[i] = 'C';
 		}
-	
+		else
+		{
+			return 0;
+		}
+
+	}
 
 	return reversed;
 }
