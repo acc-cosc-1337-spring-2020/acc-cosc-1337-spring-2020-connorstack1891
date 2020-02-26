@@ -8,14 +8,14 @@ int main()
 
 	BankAccount account(500);
 	auto balance = account.get_balance();
-	cout << "Balance is: " << balance;
+	cout << "Balance is: " << balance << "\n";
 	
 	auto amount{ 0 };
-	cout << "Enter deposit amount: ";
+	cout << "Enter deposit amount: \n";
 	cin >> amount;
 
 	account.deposit(amount);
-	cout << "Balance: " << balance;
+	cout << "Balance: \n" << account.get_balance();
 
 
 	return 0;
