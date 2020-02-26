@@ -19,9 +19,9 @@ user enters a y or Y.
 int main()
 {
 	int init;
-	cout << "Enter 1 for Get GC Content, or 2 for Get DNA Complement";
+	cout << "Enter 1 for Get GC Content, or 2 for Get DNA Complement:  ";
 	cin >> init;
-
+	
 	if (init == 1)
 	{
 		string dna1;
@@ -30,10 +30,11 @@ int main()
 		get_gc_content(dna1);
 
 		double gc_content = get_gc_content(dna1);
-		cout << gc_content;
+		cout << "The GC ratio is: " << gc_content << "\n";
+
 	}
 
-	else if (init == 2)
+	else if(init == 2)
 	{
 		string dna2;
 		cout << "Enter your string of DNA ";
@@ -42,12 +43,13 @@ int main()
 
 		string dna_complement = get_dna_complement(dna2);
 
-		cout << dna_complement;
-
-	}
+		cout << "The complement of the dna string is: " << dna_complement << "\n";
+		
+	} 
 	else
+	{
 		return 0;
-	
+	}
 
 	return 0;
 }
