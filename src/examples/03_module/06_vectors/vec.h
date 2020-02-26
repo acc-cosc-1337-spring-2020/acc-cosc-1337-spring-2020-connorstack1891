@@ -6,7 +6,6 @@ Write function prototype for function loop_vector_w_index with no parameters.
 
 */
 
-
 /*
 Write function prototype for function loop_vector_w_index with a vector of int pass by value parameter.
 
