@@ -25,11 +25,15 @@ int main()
 			if (init == 1)
 			{
 				get_max_from_vector(nums);
-				cout << get_max_from_vector(nums) << "\n";
+				cout << "The max number is" << get_max_from_vector(nums) << "\n";
 			}
 			else if (init == 2)
 			{
-
+				int number;
+				cout << "Enter a positive integer. We will find all prime values up to that number: " << "\n";
+				cin >> number;
+				vector_of_primes(number);
+				is_prime(number);
 			}
 
 	} while (init == 0 || cont == 'y');
