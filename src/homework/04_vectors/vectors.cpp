@@ -1,5 +1,6 @@
 #include "vectors.h"
 #include <iostream>
+#include <vector>
 
 using std::cout;
 
@@ -13,14 +14,15 @@ vector of intsparameter that returns the max value in a vector
 
 int get_max_from_vector(const std::vector<int> &nums)
 {
-	int i = nums[0];
-	int largest = nums[i];
-	for (int i = 0; i < 6 ; ++i)
-		if (nums[i] > largest)
+	int max = nums[0];
+	
+	for (int i = 0; i < nums.size() - 1 ; ++i)
+		if (nums[i] > max)
 		{
-			largest = nums[i];
+			max = nums[i];
 		}
-	return largest;
+		
+	return max;
 }
 
 /*
@@ -34,7 +36,7 @@ given a number returns true if prime or false if not prime
 bool is_prime(int number)
 {
 	bool flag = true;
-	for (int i = 2; i <= number / 2; ++i)
+	for (int i = 2; i < number - 1 / 2; ++i)
 	{
 		if (number % i == 0)
 		{
@@ -58,8 +60,15 @@ Example given number 10 returns a vector with elements 2,3,5,7,
 Make sure to use the is_prime function to determine if current 
 number is prime.
 */
-int vector_of_primes(int number)
+std::vector<int> vector_of_primes(int number)
 {
+	std::vector<int>primeList = {};
 
-	return 0;
+	for (int i = 0; i < number; ++i)
+	{
+		if (is_prime(i) == true)
+			primeList.push_back(i);	
+	}
+
+	return primeList;
 }
