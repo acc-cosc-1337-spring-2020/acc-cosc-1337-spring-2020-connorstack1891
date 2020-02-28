@@ -24,8 +24,10 @@ int main()
 		cin >> init;
 			if (init == 1)
 			{
-				get_max_from_vector(nums);
 				cout << "The max number is: " << get_max_from_vector(nums) << "\n";
+				
+				cout << "continue? 'y' to continue. Any other key will exit: " << "\n";
+				cin >> cont;
 			}
 			else if (init == 2)
 			{
@@ -39,6 +41,8 @@ int main()
 				{
 					cout << p << "\n";
 				}
+				cout << "continue? 'y' to continue. Any other key will exit: " << "\n";
+				cin >> cont;
 			}
 
 	} while (init == 0 || cont == 'y');

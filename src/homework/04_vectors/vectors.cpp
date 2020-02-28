@@ -35,16 +35,24 @@ given a number returns true if prime or false if not prime
 
 bool is_prime(int number)
 {
-	bool flag = true;
-	for (int i = 2; i < number - 1 / 2; ++i)
+	if (number > 0)
 	{
-		if (number % i == 0)
+		bool flag = true;
+		for (int i = 2; i < number - 1 / 2; ++i)
+
 		{
-			flag = false;
-			break;
+			if (number % i == 0)
+			{
+				flag = false;
+				break;
+			}
 		}
+		return flag;
 	}
-	return flag;
+	else if (number <= 0)
+	{
+		return false;
+	}
 }
 
 
@@ -62,13 +70,21 @@ number is prime.
 */
 std::vector<int> vector_of_primes(int number)
 {
-	std::vector<int>primeList = {};
-
-	for (int i = 0; i < number; ++i)
+	if (number > 0)
 	{
-		if (is_prime(i) == true)
-			primeList.push_back(i);	
-	}
+		std::vector<int>primeList = {};
 
-	return primeList;
+		for (int i = 2; i < number; ++i)
+		{
+			if (is_prime(i) == true)
+			{
+				primeList.push_back(i);
+			}
+		}
+		return primeList;
+	}
+	else if (number <= 0)
+	{
+		cout << "ERROR...";
+	}
 }
