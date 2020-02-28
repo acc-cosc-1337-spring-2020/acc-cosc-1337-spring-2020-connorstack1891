@@ -14,9 +14,15 @@ int main()
 	cout << "Enter deposit amount: \n";
 	cin >> amount;
 
-	account.deposit(amount);
-	cout << "Balance: \n" << account.get_balance();
-
+	try
+	{
+		account.deposit(amount);
+		cout << "Balance: \n" << account.get_balance();
+	}
+	catch (Invalid e)
+	{
+		cout << e.get_error() << "\n";
+	}
 
 	return 0;
 }
