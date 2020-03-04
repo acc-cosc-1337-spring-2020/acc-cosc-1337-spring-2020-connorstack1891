@@ -30,3 +30,12 @@ void BankAccount::withdraw(int amount)
 		balance -= amount;
 	}
 }
+
+void BankAccount::open(int amount)
+{
+	if (amount < min_balance_to_open)
+	{
+		throw Invalid("Amount must be atleast 25...");
+	}
+	balance += amount;
+}

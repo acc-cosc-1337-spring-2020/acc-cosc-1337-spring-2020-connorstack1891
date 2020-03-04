@@ -40,3 +40,24 @@ TEST_CASE("Test bank account withdraw")
 	REQUIRE_THROWS_AS(account.withdraw(451), Invalid);
 	REQUIRE(account.get_balance() == 450);
 }
+TEST_CASE("test BankAccount default constructor balance 0")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+}
+
+TEST_CASE("Test BankAccount initial open deposit >= 25")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+
+	account.open(25);
+	REQUIRE(account.get_balance() == 25);
+
+}
+TEST_CASE("Test BankAccount initial open deposit <= 25")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+	REQUIRE_THROWS_AS(account.open(24), Invalid);
+}
