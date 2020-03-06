@@ -16,19 +16,15 @@ Iterate the vector and display the Area for each Rectangle on one line and the t
 */
 int main()
 {
-
 	std::vector<WannaBeSquare> area{ WannaBeSquare(4, 5), WannaBeSquare (10, 10),  WannaBeSquare(100, 10)};
 
+	//cout << area[0];
 	auto total{ 0 };
 
 	for (auto  m : area )
 	{
-		cout << m.get_area() << "\n";
-		total += m.get_area();
-
+		cout << m << "\n";
 	}
 
-	cout << total;
-	
 	return 0;
 }
