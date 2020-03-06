@@ -5,10 +5,12 @@ using std::cout; using std::cin;
 
 int main() 
 {
-	auto first_player;
+	
+	std::string firstPlayer;
 
-	cout << "First player";
-	cin >> first_player;
+	cout << "First player enter X or O: ";
+	cin >> firstPlayer;
+	start_game(firstPlayer);
 
 
 	return 0;

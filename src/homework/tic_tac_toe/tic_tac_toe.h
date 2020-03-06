@@ -1,12 +1,12 @@
-//h
 #include <string>
 
 class TicTacToe
 {
 public:
 	void start_game(std::string first_player);
+
 	void mark_board(int position);
-	string get_player()const;
+	std::string get_player()const;
 private:
 	void set_next_player();
 
