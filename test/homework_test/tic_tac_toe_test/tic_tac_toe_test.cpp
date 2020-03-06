@@ -11,3 +11,36 @@ TEST_CASE("Test can't call mark board before game start.")
 	Game g;
 	REQUIRE_THROWS_AS(g.mark_board(0), Error);
 }
+TEST_CASE("Test start game accepts only X or O")
+{
+	Game g;
+	REQUIRE_THROWS_AS(g.start_game("W"), Error);
+}
+TEST_CASE("Test set first player to X")
+{
+	Game g;
+	g.start_game("X");
+	REQUIRE(g.get_player() == "X");
+}
+TEST_CASE("Test set first player to O")
+{
+	Game g;
+	g.start_game("O");
+	REQUIRE(g.get_player() == "O");
+}
+TEST_CASE("Test start game with X flow")
+{
+	Game g;
+	g.start_game("X");
+	REQUIRE(g.get_player() == "X");
+	g.mark_board(4);
+	REQUIRE(g.get_player() == "O");
+}
+TEST_CASE("Test start game with O flow")
+{
+	Game g;
+	g.start_game("O");
+	REQUIRE(g.get_player() == "O");
+	g.mark_board(2);
+	REQUIRE(g.get_player() == "X");
+}

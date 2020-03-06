@@ -10,6 +10,7 @@ void Game::start_game(std::string first_player)
 	else
 	{
 		throw Error("Invalid entry. Must be O or X");
+		//std::string error = first_player;
 	}
 		
 }
