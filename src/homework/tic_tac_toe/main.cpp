@@ -5,18 +5,15 @@ using std::cout; using std::cin;
 
 int main() 
 {
-	/*
-	try
-	{
-		std::string firstPlayer ;
+	Game game;
+	std::string first_player;
+	cout << "First player. Pick 'X' or 'O'";
+	cin >> first_player;
+	game.start_game(first_player);
 
-		cout << "First player enter X or O: ";
-		cin >> firstPlayer;
-		start_game(firstPlayer);
+	
 
-	}
-	*/
-
+	
 
 	return 0;
 }

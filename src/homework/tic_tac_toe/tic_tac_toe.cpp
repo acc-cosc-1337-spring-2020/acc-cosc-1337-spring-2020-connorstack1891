@@ -24,17 +24,29 @@ void Game::mark_board(int position)
 	{
 		throw Error("Position must be 1-9");
 	}
-
-
+	else
+	{
+		throw Error("Must contain some value...");
+	}
+	
+	return set_next_player();
 }
 
 std::string Game::get_player() const
 {
 
-	return std::string();
+	return std::string(player);//maybe wrong.
 }
 
 void Game::set_next_player()
 {
-
+	if (player == "O")
+	{
+		player = "X";
+	}
+	else if (player == "X")
+	{
+		player = "O";
+	}
 }
+
