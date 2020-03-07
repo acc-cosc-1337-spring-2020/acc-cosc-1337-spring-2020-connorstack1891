@@ -36,7 +36,7 @@ void Game::mark_board(int position)
 std::string Game::get_player() const
 {
 
-	return std::string(player);//maybe wrong.
+	return std::string(player);
 }
 
 void Game::set_next_player()
