@@ -1,3 +1,4 @@
+#include "checking_account.h"
 #include "bank_account.h"
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
@@ -6,7 +7,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Test BankAccount contructor")
+TEST_CASE("Test BankAccount constructor")
 {
 	BankAccount account(500);
 
@@ -67,4 +68,17 @@ TEST_CASE("Test  BankAccount static rate initialization")
 
 	REQUIRE(account.get_rate() == 0.025);
 	
+}
+
+TEST_CASE("Test CheckingAccount constructor")
+{
+	checkingAccount account(500);
+
+	REQUIRE(account.get_balance() == 512);
+}
+
+TEST_CASE("test CheckingAccount default constructor balance 0")
+{
+	checkingAccount account(150);
+	REQUIRE(account.get_balance() == 153);
 }
