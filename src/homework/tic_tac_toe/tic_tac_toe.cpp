@@ -1,6 +1,5 @@
 //cpp
 #include "tic_tac_toe.h"
-using std::cout;
 #include <iostream>
 using std::cout;
 
@@ -91,6 +90,18 @@ bool Game::check_board_full()
 	return true;
 }
 
+bool Game::check_board_full()
+{
+	for (std::size_t i = 0; i < pegs.size(); ++i)
+	{
+		if (pegs[i] == " ")
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
 void Game::clear_board()
 {
 	for (auto &peg : pegs)
@@ -99,7 +110,3 @@ void Game::clear_board()
 	}
 }
 
-bool Game::game_over()
-{
-	return check_board_full();
-}
