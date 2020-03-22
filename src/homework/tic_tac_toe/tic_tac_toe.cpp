@@ -35,9 +35,10 @@ void Game::mark_board(int position)
 	{
 		throw Error("Position must be 1-9");
 	}
-	else
+	
+	if (player == "")
 	{
-		throw Error("Must contain some value...");
+		throw Error("Must start game first.");
 	}
 	
 	pegs[position - 1] = player;
@@ -51,19 +52,6 @@ void Game::display_board() const
 	{
 		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
 	}
-}
-
-std::string Game::get_player() const
-{
-	for (int i = 0; i < 9; i += 3)
-	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2]<< "\n";
-	}
-}
-
-std::string Game::get_player() const
-{
-	//return std::string(player);
 }
 
 void Game::set_next_player()
@@ -80,19 +68,7 @@ void Game::set_next_player()
 
 bool Game::check_board_full()
 {
-	for (std::size_t i; i < pegs.size(); i++)
-	{
-		if (pegs[i] == " ")
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-bool Game::check_board_full()
-{
-	for (std::size_t i = 0; i < pegs.size(); ++i)
+	for (std::size_t i=0; i < pegs.size(); i++)
 	{
 		if (pegs[i] == " ")
 		{
