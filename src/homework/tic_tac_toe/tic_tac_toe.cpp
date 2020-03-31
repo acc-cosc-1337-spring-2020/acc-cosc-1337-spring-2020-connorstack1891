@@ -53,13 +53,6 @@ void Game::display_board() const
 	}
 }
 
-std::string Game::get_player() const
-{
-	for (int i = 0; i < 9; i += 3)
-	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2]<< "\n";
-	}
-}
 
 std::string Game::get_player() const
 {
@@ -90,17 +83,6 @@ bool Game::check_board_full()
 	return true;
 }
 
-bool Game::check_board_full()
-{
-	for (std::size_t i = 0; i < pegs.size(); ++i)
-	{
-		if (pegs[i] == " ")
-		{
-			return false;
-		}
-	}
-	return true;
-}
 
 void Game::clear_board()
 {

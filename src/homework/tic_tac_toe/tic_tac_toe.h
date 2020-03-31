@@ -16,9 +16,6 @@ public:
 
 	void display_board()const;
 
-	bool game_over();
-
-	void display_board()const;
 
 private:
 	void set_next_player();
@@ -30,10 +27,6 @@ private:
 	std::string player;
 
 	std::vector < std::string> pegs{ 9, " " };
-
-	bool check_board_full();
-
-	void clear_board();
 };
 
 
