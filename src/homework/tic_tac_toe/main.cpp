@@ -29,9 +29,9 @@ int main()
 					game.mark_board(position);
 
 				}
-				catch (Error mb)
+				catch (Error markboard)
 				{
-					cout << mb.get_message() << "\n";
+					cout << markboard.get_message() << "\n";
 					//init = 1;
 				}
 				cout << "next turn? Y to continue..." << "\n";

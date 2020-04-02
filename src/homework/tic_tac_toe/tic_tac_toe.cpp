@@ -18,7 +18,6 @@ void Game::start_game(std::string first_player)
 	else
 	{
 		throw Error("Invalid entry. Must be O or X");
-		//std::string error = first_player;
 	}
 
 	clear_board();
@@ -35,9 +34,9 @@ void Game::mark_board(int position)
 	{
 		throw Error("Position must be 1-9");
 	}
-	else
+	if(player == "")
 	{
-		throw Error("Must contain some value...");
+		throw Error("Must start game first.");
 	}
 	
 	pegs[position - 1] = player;
@@ -53,11 +52,11 @@ void Game::display_board() const
 	}
 }
 
-
+/*
 std::string Game::get_player() const
 {
 	//return std::string(player);
-}
+}*/
 
 void Game::set_next_player()
 {
@@ -73,7 +72,7 @@ void Game::set_next_player()
 
 bool Game::check_board_full()
 {
-	for (std::size_t i; i < pegs.size(); i++)
+	for (std::size_t i=0; i < pegs.size(); i++)
 	{
 		if (pegs[i] == " ")
 		{
