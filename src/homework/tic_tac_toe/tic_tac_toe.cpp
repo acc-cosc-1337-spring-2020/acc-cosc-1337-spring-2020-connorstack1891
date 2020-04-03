@@ -52,6 +52,12 @@ void Game::display_board() const
 	}
 }
 
+std::string Game::get_winner()
+{
+	//std::string winner = winner();
+	return std::string();
+}
+
 /*
 std::string Game::get_player() const
 {
@@ -89,5 +95,24 @@ void Game::clear_board()
 	{
 		peg = " ";
 	}
+}
+
+bool Game::check_column_win()
+{
+	return false;
+}
+
+bool Game::check_row_win()
+{
+	return false;
+}
+
+bool Game::check_diagonal_win()
+{
+	return false;
+}
+
+void Game::set_winner()
+{
 }
 
