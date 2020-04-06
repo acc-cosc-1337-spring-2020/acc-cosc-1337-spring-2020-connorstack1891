@@ -27,13 +27,15 @@ int main()
 				try
 				{
 					game.mark_board(position);
-
+					game.display_board();
+					
 				}
 				catch (Error markboard)
 				{
 					cout << markboard.get_message() << "\n";
 					//init = 1;
 				}
+				
 				cout << "next turn? Y to continue..." << "\n";
 				cin >> next;
 				
