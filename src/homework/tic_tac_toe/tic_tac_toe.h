@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#ifndef GAME_H
+#define GAME_H
 
 
 class Game
@@ -14,9 +16,14 @@ public:
 
 	std::string get_player()const { return player; }
 
-	void display_board()const;
+	//void display_board()const;
 	
-	std::string get_winner();
+	std::string get_winner() const { return winner; }
+
+	friend std::ostream& operator<<(std::ostream& out, const Game& b);
+
+	friend std::istream& operator>>(std::istream& in, Game& b);
+
 
 
 
@@ -54,3 +61,6 @@ public:
 private:
 	std::string message;
 };
+
+
+#endif

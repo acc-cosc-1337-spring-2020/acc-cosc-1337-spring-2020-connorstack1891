@@ -49,6 +49,16 @@ int main()
 			init = 0;
 		}
 	} while (first_player != "O" || first_player != "X");
+
+
+	/*
+	do you want to play again loop:
+	TTT game 
+	loop fr mark board
+	gaame ends
+	call manager save game
+	
+	*/
 	//while (init != 0 first_player != "O" || first_player != "X");
 	
 

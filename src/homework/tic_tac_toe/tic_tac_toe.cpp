@@ -6,7 +6,20 @@ using std::cout;
 
 bool Game::game_over()
 {
-	return check_board_full();
+	if (check_column_win() == true || check_diagonal_win() == true || check_row_win() == true)
+	{
+		set_winner();
+		return true;
+	}
+	else if (check_board_full() == true)
+	{
+		winner = 'c';
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void Game::start_game(std::string first_player)
@@ -41,14 +54,20 @@ void Game::mark_board(int position)
 	}
 	
 	pegs[position - 1] = player;
-	
+	if (game_over == false)
+	{
+		set_next_player();
+	}
+
+	/*
 	check_column_win();
 	check_row_win();
 	check_diagonal_win();
 	set_winner();
-	set_next_player();
+	*/
 }
 
+/*
 void Game::display_board() const
 {
 	for (int i = 0; i < 9; i += 3)
@@ -57,12 +76,12 @@ void Game::display_board() const
 	}
 
 }
-
+*/
+/*
 std::string Game::get_winner()
 {
 	return player;
-}
-
+}*/
 
 void Game::set_next_player()
 {
@@ -178,20 +197,45 @@ bool Game::check_diagonal_win()
 
 void Game::set_winner()
 {
-	if (check_column_win() == true)
+	if (player == "X")
 	{
-		cout << "the winner is "<< get_winner() << "\n";
-		clear_board();
+		winner = 'X';
 	}
-	else if (check_row_win() == true)
+	else if (player == "O")
 	{
-		cout << "the winner is " << get_winner() << "\n";
-		clear_board();
-	}
-	else if (check_diagonal_win() == true)
-	{
-		cout << "the winnner is " << get_winner() << "\n";
-		clear_board()
+		winner = 'O';
 	}
 }
+
+
+std::ostream & operator<<(std::ostream & out, const Game & g)
+{
+	for (int i = 0; i < 9; i += 3)
+	{
+		out << g.pegs[i] << "|" << g.pegs[i + 1] << "|" << g.pegs[i + 2] << "\n";
+	}
+	return out;
+	// TODO: insert return statement here
+}
+
+std::istream & operator>>(std::istream & in, Game & g)
+{
+	try
+	{
+		int position;
+		cout << "\n" << "Mark the position(1-9) that you would like to take: " << "\n";
+		in >> position;
+		cout << "\n";
+		g.mark_board(position);
+		cout << "\n";
+	}
+	catch (Error err)
+	{
+		cout << err.get_message() << "\n";
+	}
+	return in;
+	// TODO: insert return statement here
+}
+
+
 

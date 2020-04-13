@@ -9,7 +9,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test BankAccount constructor")
 {
-	BankAccount account(500);
+	unique_ptr<BankAccount> account= make_unique<SavingsAccount>(90);
 
 	REQUIRE(account.get_balance() == 500);
 }
