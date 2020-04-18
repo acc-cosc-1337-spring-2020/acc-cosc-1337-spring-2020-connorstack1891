@@ -16,7 +16,7 @@ public:
 
 private:
 
-	std::vector<Game>games{};
+	std::vector<Game>games{}; //reference_wrapper goes here
 	int x_win{ 0 };
 	int o_win{ 0 };
 	int ties{ 0 };

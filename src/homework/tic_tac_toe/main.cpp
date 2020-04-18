@@ -1,13 +1,19 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 #include <iostream>
 
 using std::cout; using std::cin;
 
 int main()
 {
+	
 	std::string option = "Y";
 	TicTacToeManager manager;
+	TicTacToe3();
+	TicTacToe4();
+
 	do
 	{
 		std::string first_player = "X";
@@ -17,8 +23,11 @@ int main()
 		int o;
 		int t;
 
+		int type;
+		cout << "Select type of game. 3 for a 3x3 board, 4 for a 4x4 board.  " << "\n";
+		cin >> type;
 
-		Game game;
+		Game game(type);
 
 		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
 		{
@@ -60,53 +69,3 @@ int main()
 	return 0;
 }
 
-
-/*
-int main()
-{
-	Game game;
-	std::string first_player;
-	int position;
-	char next;
-	int init{};
-
-	cout << "First player. Pick 'X' or 'O'"<< "\n";
-	cin >> player;
-
-	do
-	{
-		try
-		{
-			game.start_game(first_player);
-			//init = 1;
-			do
-			{
-				cout << "Mark the position(1-9) that you would like to take: " << "\n";
-				cin >> position;
-				try
-				{
-					game.mark_board(position);
-					//game.display_board();
-
-				}
-				catch (Error markboard)
-				{
-					cout << markboard.get_message() << "\n";
-					//init = 1;
-				}
-
-				cout << "next turn? Y to continue..." << "\n";
-				cin >> next;
-
-			} while (next == 'y' && next == 'Y');
-		}
-		catch (Error e)
-		{
-			cout << e.get_message() << "\n";
-			cout << "First player. Pick 'X' or 'O'" << "\n";
-			cin >> first_player;
-			init = 0;
-		}
-	} while (first_player != "O" || first_player != "X");
-
-	*/
