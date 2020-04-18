@@ -1,19 +1,78 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include <iostream>
 
 using std::cout; using std::cin;
 
-int main() 
+int main()
 {
+	std::string option = "Y";
+	TicTacToeManager manager;
+	do
+	{
+		std::string first_player = "X";
 
+		bool winner = true;
+		int x;
+		int o;
+		int t;
+
+
+		Game game;
+
+		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
+		{
+			try
+			{
+				cout << "Player one enter 'X' or 'O': ";
+				cin >> first_player;
+				game.start_game(first_player);
+			}
+			catch (Error e)
+			{
+				cout << e.get_message() << "\n";
+			}
+		}
+		do {
+			cin >> game;
+			cout << game;
+
+			winner = game.game_over();
+
+		} while (winner == false);
+
+
+		manager.save_game(game);
+		cout << "\n";
+		cout << game;
+		cout << "\n";
+		manager.get_winner_total(x, o, t);
+		cout << "\n";
+		cout << "The winner is " << game.get_winner() << "\n";
+
+		cout << "Y to continue: " << "\n";
+		cin >> option;
+		cout << "\n";
+	} while (option == "Y" || option == "y");
+
+	cout << manager;
+
+	return 0;
+}
+
+
+/*
+int main()
+{
 	Game game;
 	std::string first_player;
 	int position;
 	char next;
 	int init{};
-	
+
 	cout << "First player. Pick 'X' or 'O'"<< "\n";
-	cin >> first_player;
+	cin >> player;
+
 	do
 	{
 		try
@@ -27,18 +86,18 @@ int main()
 				try
 				{
 					game.mark_board(position);
-					game.display_board();
-					
+					//game.display_board();
+
 				}
 				catch (Error markboard)
 				{
 					cout << markboard.get_message() << "\n";
 					//init = 1;
 				}
-				
+
 				cout << "next turn? Y to continue..." << "\n";
 				cin >> next;
-				
+
 			} while (next == 'y' && next == 'Y');
 		}
 		catch (Error e)
@@ -50,37 +109,4 @@ int main()
 		}
 	} while (first_player != "O" || first_player != "X");
 
-
-	/*
-	do you want to play again loop:
-	TTT game 
-	loop fr mark board
-	gaame ends
-	call manager save game
-	
 	*/
-	//while (init != 0 first_player != "O" || first_player != "X");
-	
-
-	/* I COULDNT GET THESE TWO WHILE LOOPS TO WORK WITH EACH OTHER SO I STUFFED IT INSIDE THE OTHER ONE. THIS IS PROBABLY NOT THE BEST WAY...
-	do
-	{
-		cout << "Mark the position(1-9) that you would like to take: " << "\n";
-		cin >> position;
-		try
-		{
-			game.mark_board(position);
-
-		}
-		catch (Error mb)
-		{
-			cout << mb.get_message() << "\n";
-			init = 1;
-		}
-		cout << "next turn? Y to continue..." << "\n";
-		cin >> next;
-
-	} while ( next == 'y' || next == 'Y');
-	*/
-	return 0;
-}

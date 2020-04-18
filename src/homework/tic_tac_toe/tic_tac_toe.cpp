@@ -54,7 +54,7 @@ void Game::mark_board(int position)
 	}
 	
 	pegs[position - 1] = player;
-	if (game_over == false)
+	if (game_over() == false)
 	{
 		set_next_player();
 	}

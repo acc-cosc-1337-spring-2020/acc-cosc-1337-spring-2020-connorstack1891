@@ -8,7 +8,7 @@ using std::cout;
 void TicTacToeManager::save_game(const Game b)
 {
 	games.push_back(b);
-	update_winner_count(b.get_winner);
+	update_winner_count(b.get_winner());
 }
 
 void TicTacToeManager::get_winner_total(int & x, int & o, int & t)
