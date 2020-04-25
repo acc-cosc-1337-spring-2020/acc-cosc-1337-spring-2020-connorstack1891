@@ -3,20 +3,22 @@
 #include <iostream>
 using std::cout;
 
-
+//Base(std::unique_ptr<Base> n)
+//    : next(std::move(n)) {}
 //cpp 
-void TicTacToeManager::save_game(const Game b)
+void TicTacToeManager::save_game(std::unique_ptr<Game> &b)
+	: pegs(b);	
 {
-	games.push_back(b);
-	update_winner_count(b.get_winner());
+	games->push_back(std::move (games));
+	update_winner_count(b->get_winner());
+
 }
 
 void TicTacToeManager::get_winner_total(int & x, int & o, int & t)
 {
-	cout << "\n";
-	cout << "X has won, " << x_win << "times." << "\n";
-	cout << "O has won, " << o_win << "times." << "\n";
-	cout << ties << " ties." << "\n";
+	o = o_win;
+	x = x_win;
+	t = ties;
 }
 
 void TicTacToeManager::update_winner_count(std::string winner)
@@ -40,6 +42,10 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 	for (auto game: manager.games)
 	{
 		out << game << "\n";
+		out << game;
+		std::string w = game.get_winner();
+		out << "\n";
+		out << "the winner is: " << w << "\n"; 
 	}
 
 	out << "\n";
