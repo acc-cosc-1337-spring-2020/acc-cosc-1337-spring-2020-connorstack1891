@@ -40,13 +40,13 @@ void Game::start_game(std::string first_player)
 
 void Game::mark_board(int position)
 {
-	if (position >= 1 && position <= 9)
-	{
-
-	}
-	else if (position < 1 || position > 9)
+	if (position < 1 || position > 9 && pegs.size() == 9)
 	{
 		throw Error("Position must be 1-9");
+	}
+	if (position < 1 || position > 16 && pegs.size() == 16)
+	{
+		throw Error("Position must be 1-16");
 	}
 	else if(player == "")
 	{
@@ -54,34 +54,8 @@ void Game::mark_board(int position)
 	}
 	
 	pegs[position - 1] = player;
-	if (game_over() == false)
-	{
-		set_next_player();
-	}
-
-	/*
-	check_column_win();
-	check_row_win();
-	check_diagonal_win();
-	set_winner();
-	*/
+	set_next_player();
 }
-
-/*
-void Game::display_board() const
-{
-	for (int i = 0; i < 9; i += 3)
-	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
-	}
-
-}
-*/
-/*
-std::string Game::get_winner()
-{
-	return player;
-}*/
 
 void Game::set_next_player()
 {
@@ -138,23 +112,30 @@ void Game::set_winner()
 {
 	if (player == "X")
 	{
-		winner = 'X';
+		winner = "O";
 	}
-	else if (player == "O")
+	else 
 	{
-		winner = 'O';
+		winner = "X";
 	}
 }
 
 
-std::ostream & operator<<(std::ostream & out, const Game & g)
+std::ostream & operator<<(std::ostream & out, const Game & t)
 {
-	for (int i = 0; i < 9; i += 3)
+	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
 	{
-		out << g.pegs[i] << "|" << g.pegs[i + 1] << "|" << g.pegs[i + 2] << "\n";
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2];
+
+		if (t.pegs.size() == 16)
+		{
+			out << "|" << t.pegs[i + 3];
+		}
+
+		out << "\n";
 	}
 	return out;
-	// TODO: insert return statement here
+	
 }
 
 std::istream & operator>>(std::istream & in, Game & g)
@@ -173,7 +154,7 @@ std::istream & operator>>(std::istream & in, Game & g)
 		cout << err.get_message() << "\n";
 	}
 	return in;
-	// TODO: insert return statement here
+	
 }
 
 
