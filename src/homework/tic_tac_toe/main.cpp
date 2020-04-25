@@ -69,3 +69,12 @@ int main()
 	return 0;
 }
 
+
+if game_type == 3
+{
+	game.pushback(game)
+}
+else if game_type == 4
+{
+	games.push_back
+}
