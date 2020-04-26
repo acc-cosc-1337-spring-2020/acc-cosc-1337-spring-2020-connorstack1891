@@ -7,10 +7,9 @@ using std::cout;
 //    : next(std::move(n)) {}
 //cpp 
 void TicTacToeManager::save_game(std::unique_ptr<Game> &b)
-	: pegs(b);	
 {
-	games->push_back(std::move (games));
 	update_winner_count(b->get_winner());
+	games.push_back(std::move (b));
 
 }
 
@@ -39,11 +38,10 @@ void TicTacToeManager::update_winner_count(std::string winner)
 
 std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 {
-	for (auto game: manager.games)
+	for (auto& game: manager.games)
 	{
-		out << game << "\n";
-		out << game;
-		std::string w = game.get_winner();
+		out << *game << "\n";
+		std::string w = game->get_winner();
 		out << "\n";
 		out << "the winner is: " << w << "\n"; 
 	}
