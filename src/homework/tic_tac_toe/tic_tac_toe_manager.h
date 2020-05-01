@@ -17,8 +17,8 @@ public:
 
 private:
 
-	std::vector<Game>games{}; 
-	std::vector<std::unique_ptr<Game>>pegs; 
+	std::vector<std::unique_ptr<Game>>games{}; 
+	
 	int x_win{ 0 };
 	int o_win{ 0 };
 	int ties{ 0 };
