@@ -22,6 +22,6 @@ std::vector<std::unique_ptr<Game>> TicTacToeData::get_games()
 	std::vector<std::unique_ptr<Game>>boards;
 	ifstream vectorFile("TicTacToe.txt");
 	vector<string>pegs;
-
+	vectorFile.close();
 	return std::vector<std::unique_ptr<Game>>();
 }

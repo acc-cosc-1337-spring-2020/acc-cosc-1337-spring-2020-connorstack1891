@@ -18,7 +18,7 @@ public:
 
 	void get_winner_total(int& o, int& w, int& t);
 
-	~TicTacToeManager();
+	//~TicTacToeManager();
 
 private:
 
