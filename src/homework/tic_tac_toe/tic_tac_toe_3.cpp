@@ -31,6 +31,7 @@ Win diagonally
 3 4 5
 6 7 8
 */
+
 bool TicTacToe3::check_column_win()
 {
 	if (pegs[0] == "X" && pegs[3] == "X" && pegs[6] == "X")

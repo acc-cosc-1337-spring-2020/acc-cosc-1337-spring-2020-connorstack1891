@@ -6,6 +6,7 @@
 class TicTacToe4 : public Game {
 
 public:
+	TicTacToe4(std::vector<string> p, string winner);
 	TicTacToe4() : Game(4) {}
 
 

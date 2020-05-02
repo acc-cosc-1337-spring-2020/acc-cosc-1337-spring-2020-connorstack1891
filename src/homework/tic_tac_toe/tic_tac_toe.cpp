@@ -4,6 +4,11 @@
 using std::cout;
 
 
+Game::Game(std::vector<string> p, string win)
+	: pegs{ p }, winner{ win }
+{
+}
+
 bool Game::game_over()
 {
 	if (check_column_win() == true || check_diagonal_win() == true || check_row_win() == true)
@@ -95,6 +100,8 @@ bool Game::check_row_win()
 	
 	return false;
 }
+
+
 
 bool Game::check_column_win()
 {

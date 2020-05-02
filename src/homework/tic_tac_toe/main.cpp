@@ -8,6 +8,8 @@ using std::cout; using std::cin; using std::string;
 
 int main()
 {
+	TicTacToeData;
+	TicTacToeManager(data);
 	std::unique_ptr<TicTacToeManager> manager = std::make_unique<TicTacToeManager>();
 	string cont;
 

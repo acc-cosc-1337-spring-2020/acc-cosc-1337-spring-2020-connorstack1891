@@ -3,11 +3,14 @@
 #include <iostream>
 #ifndef GAME_H
 #define GAME_H
+using std::vector; using std::string;
 
 
 class Game
 {
 public:
+	Game(std::vector<string> p, string win);
+
 	Game(int s) : pegs(s*s, " "){}
 
 	bool game_over();
@@ -25,6 +28,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, const Game& b); 
 
 	friend std::istream& operator>>(std::istream& in, Game& b);
+
+	std::vector<std::string> get_pegs()const { return pegs; }
 
 protected:
 
