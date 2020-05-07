@@ -9,6 +9,7 @@ Rule of 3 - C++98
 class Vector
 {
 public:
+	Vector();
 	Vector(size_t sz);
 	Vector(const Vector& v);//copy constructor - Rule of 3 c++98
 	Vector& operator=(const Vector& v);//copy assignment- Rule of 3 c++98
@@ -23,6 +24,7 @@ public:
 	void Push_Back(int value);
 	~Vector();//destructor-Rule of 3 c++98
 	std::string get_pegs()const { return pegs; }
+	
 private:
 	size_t size;
 	size_t space{ 0 };
